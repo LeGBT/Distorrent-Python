@@ -31,7 +31,7 @@ setup(
 
     keywords='torrent rss',
     py_modules=["app"],
-    install_requires=["bottle", "json", "requests", "untangle"],
+    install_requires=["bottle", "requests", "untangle"],
     extras_require={},
     package_data={},
     data_files=[],
