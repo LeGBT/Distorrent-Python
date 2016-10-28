@@ -82,8 +82,7 @@ def scan():
                 for i, flt in enumerate(data["filter"]):
                     if re.match(flt[1]+"0?"+str(flt[2]),
                                 item.title.cdata, flags=re.I):
-                        # subprocess.run(["transmission-remote", "--add",
-                        subprocess.run(["echo",
+                        subprocess.run(["transmission-remote", "--add",
                                         item.link.cdata])
                         del data["log"][0]
                         l = datetime.datetime.now().strftime(
@@ -336,7 +335,7 @@ def dec_filter(i):
 
 def schedule():
     scan()
-    Timer(3*60, schedule).start()
+    Timer(41*60, schedule).start()
 
 schedule()
-run(host='localhost', port=8080)
+run(host='0.0.0.0', port=4001, debug=True)
