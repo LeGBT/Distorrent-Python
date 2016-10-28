@@ -80,7 +80,7 @@ def scan():
             rssfile = untangle.parse(r.text)
             for item in rssfile.rss.channel.item:
                 for i, flt in enumerate(data["filter"]):
-                    if re.match(flt[1]+"0?"+str(flt[2]),
+                    if re.match(".*"+flt[1]+"[^0-9]*0?"+str(flt[2]),
                                 item.title.cdata, flags=re.I):
                         subprocess.run(["transmission-remote", "--add",
                                         item.link.cdata])
